@@ -1,14 +1,18 @@
-###################
+﻿###################
 Project Company
 ###################
 
 This project is an example of create API using PHP and MySQL. 
 
-Features:
+********
+Features
+********
 - Form to manage Staff Members (add an delete)
 - Form to manage Company Departments (add an delete) 
 
+**********
 Server API
+**********
 - Database (MySQL)
 - API to communicate with the database to manage Departments (Add department, delete, get departments, and update)
 - Loading initial data calling the API method GET 
