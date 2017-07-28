@@ -20,3 +20,12 @@ CREATE TABLE staff_member(
 	PRIMARY KEY (id),
 	FOREIGN KEY (departament_id) REFERENCES department(id)
 );
+
+CREATE TABLE IF NOT EXISTS user (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  username varchar(255) NOT NULL,
+  password varchar(255) NOT NULL,
+  authKey varchar(255) NOT NULL,
+  accessToken varchar(255) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB;
