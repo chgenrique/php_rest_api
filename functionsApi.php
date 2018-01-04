@@ -86,7 +86,17 @@ class restApiDpto extends restApi
     }
 
     function add_department(){
-        $pName = $_POST['department_name'];
+        
+        $pName = false;
+
+        //parse_str(file_get_contents("php://input"),$post_vars);
+        
+        $post_vars = json_decode(file_get_contents("php://input"));
+        $pName = isset($post_vars) ? $post_vars->department_name : false;
+        if(!$pName){
+           $pName = isset($_POST['department_name']) ? $_POST['department_name'] : false; 
+        }
+
         $pId = 0;
         $sql = "SELECT max(id) as id FROM department";
         $res = $this->conn->getConn()->query($sql);

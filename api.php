@@ -20,12 +20,14 @@ switch ($method) {
         $apiDpto->update_department($post_vars);
         break; 
     case 'DELETE':
-        $department_id=$_GET["department_id"]; 
+        $post_vars = json_decode(file_get_contents("php://input"));
+        $department_id = isset($post_vars) ? $post_vars->department_id : false;
+        if(!$department_id){
+           $department_id= isset($_GET["department_id"]) ? $_GET["department_id"] : false;
+        }
         $apiDpto->delete_department($department_id); 
         break; 
     default:
         header("HTTP/1.0 405 Method Not Allowed"); 
         break;
 }
-
-
